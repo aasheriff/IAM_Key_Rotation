@@ -20,7 +20,7 @@ def lambda_handler(event, context):
             UserAccessKeyID = keyValue["AccessKeyId"]
             IAMUserName = keyValue["UserName"]
             # print(f"IAMUserName IAM Users:{len(IAMUserName)}: {IAMUserName}")
-            if keyValue["Status"] == "Active":
+            if (keyValue["Status"] == "Active" or keyValue["Status"] == "Inactive"):
                 currentdate = date.today()
                 active_days = currentdate - keyValue["CreateDate"].date()
                 # print ("The active days details are: ", active_days)
